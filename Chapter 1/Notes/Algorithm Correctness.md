@@ -1,0 +1,19 @@
+Algorithmic correctness may seem obvious but its an extremely important and tricky part of algorithmic design.
+As an example lets consider an algorithmic problem where we must connect points on a grid as efficiently as possible.
+- On option is to connect the *nearest-neighbors* for our below input this works fine
+![[Pasted image 20250409221309.png]]
+
+But remember a good algorithm must work on ***all*** instances of the problem
+* Below is a case where this nearest-neighbor idea produces an output (top) that is not the most efficient ( bottom ) if we choose the middle point
+![[Pasted image 20250409221522.png]]
+
+Of course we could choose to start at the left most point, but if we rotate this graph 90 degree's all points are left most and we run into the same problem.
+
+Another possible solution is to connect the two closest unconnected points until connecting the final two points gives us a cycle.
+* This closest-pair strategy works for our above problems but fails on the below where it would find the left solution when the right is more efficient
+  ![[Pasted image 20250409221912.png]]
+
+What we've described above are not algorithms but ***heuristics***. They describe good solutions on certain inputs but make ***no*** guarantees of correctness
+
+One final possibility is to try all possible solutions and pick the most efficient.
+* In this case we're guaranteed to find the best solution but at a great cost of efficiency
